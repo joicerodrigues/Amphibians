@@ -31,6 +31,7 @@
 
         <!-- TODO: set the text to the name from the single Amphibian object in the view model -->
         <TextView
+
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

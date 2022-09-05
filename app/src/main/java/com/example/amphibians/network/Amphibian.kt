@@ -15,6 +15,8 @@
  */
 package com.example.amphibians.network
 
+import com.squareup.moshi.Json
+
 /**
  * This data class defines an Amphibian which includes the amphibian's name, the type of
  * amphibian, and a brief description of the amphibian.
@@ -23,5 +25,10 @@ package com.example.amphibians.network
 data class Amphibian(
     val name: String,
     val type: String,
-    val description: String
+    val description: String,
+
+    @Json(name = "img_src") val imgSrcUrl: String, // direcionando imgSrcUrl para img_src que contem as imagens
+    @Json(name = "type_src") val typeSrcUrl: String, // direcionando typeSrcUrl para img_src que contem os tipos
+    @Json(name = "desc_src") val descSrcUrl: String // direcionando descSrcUrl para img_src que contem as descrições
+
 )
