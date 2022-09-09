@@ -35,17 +35,18 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build() // criando obj retrofit
 
-interface AmphibianApiService {
-    // TODO: Declare a suspended function to get the list of amphibians
-    @GET("photos") // informando que é uma solicitação GET
-    suspend fun getPhotos(): List<Amphibian> // recebe a string de resposta do serviço da Web.
-}
+    class AmphibianApiService{
+        interface AmphibianApiService {
+            // TODO: Declare a suspended function to get the list of amphibians
+            @GET("android-basics-kotlin-unit-4-pathway-2-project-api.json") // informando que é uma solicitação GET
+            suspend fun getAmphibians(): List<Amphibian> // recebe a string de resposta do serviço da Web.
+        }
 
-// TODO: Create an object that provides a lazy-initialized retrofit service
-object AmphibianApi {
-    val retrofitService: AmphibianApiService by lazy{
-        // inicialização lenta
-        retrofit.create(AmphibianApiService::class.java)
-    }
+        // TODO: Create an object that provides a lazy-initialized retrofit service
+        object AmphibianApi {
+            val retrofitService: AmphibianApiService by lazy { // inicialização lenta
+                retrofit.create(AmphibianApiService::class.java)
+            }
+        }
 }
 

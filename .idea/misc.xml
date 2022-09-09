@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/fragment_amphibian_detail.xml" value="0.44021739130434784" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5578125" />
+        <entry key="app/src/main/res/layout/fragment_amphibian_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_amphibian_list.xml" value="0.44021739130434784" />
+        <entry key="app/src/main/res/layout/list_view_item.xml" value="0.5578125" />
       </map>
     </option>
   </component>

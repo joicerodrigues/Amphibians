@@ -31,7 +31,7 @@
 
         <!-- TODO: set the listData binding to the list of Amphibians from the view model -->
         <androidx.recyclerview.widget.RecyclerView
-            app:listData="@{viewModel.getAmphibianList}"
+            app:listData="@{viewModel.amphibians}"
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

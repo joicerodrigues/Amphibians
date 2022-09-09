@@ -20,8 +20,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.amphibians.network.Amphibian
-import com.example.amphibians.network.AmphibianApi
+import com.example.amphibians.network.AmphibianApiService
 import kotlinx.coroutines.launch
+import java.lang.reflect.Array.set
 
 enum class AmphibianApiStatus {LOADING, ERROR, DONE}
 
@@ -35,9 +36,14 @@ class AmphibianViewModel : ViewModel() {
     private val _amphibian = MutableLiveData<Amphibian>()
     val amphibian: LiveData<Amphibian> = _amphibian
 
-
     // TODO: Crie propriedades para representar MutableLiveData e LiveData para um único objeto anfíbio.
     // Isso será usado para exibir os detalhes de um anfíbio quando um item da lista for clicado
+    private val _amphibians = MutableLiveData<List<Amphibian>>()
+    val amphibians: LiveData<List<Amphibian>> = _amphibians
+
+    init{
+        getAmphibianList()
+    }
 
     // TODO: Crie uma função que obtenha uma lista de anfíbios do serviço api e defina o
     // status através de uma Corrotina
@@ -45,10 +51,11 @@ class AmphibianViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = AmphibianApiStatus.LOADING
             try {
-                _amphibian.value = AmphibianApi.retrofitService.getPhotos()
+                _amphibians.value = AmphibianApiService.AmphibianApi.retrofitService.getAmphibians()
                 _status.value = AmphibianApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = AmphibianApiStatus.ERROR
+                _amphibians.value = listOf()
             }
         }
     }
@@ -56,6 +63,8 @@ class AmphibianViewModel : ViewModel() {
 
     fun onAmphibianClicked(amphibian: Amphibian) {
         // TODO: Set the amphibian object
-        this.amphibian
+    //    val amphibian = setOf<Amphibian>(_amphibian)
+        _amphibian.value = amphibian
+
     }
 }

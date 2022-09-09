@@ -27,8 +27,8 @@ data class Amphibian(
     val type: String,
     val description: String,
 
-    @Json(name = "img_src") val imgSrcUrl: String, // direcionando imgSrcUrl para img_src que contem as imagens
-    @Json(name = "type_src") val typeSrcUrl: String, // direcionando typeSrcUrl para img_src que contem os tipos
-    @Json(name = "desc_src") val descSrcUrl: String // direcionando descSrcUrl para img_src que contem as descrições
+//    @Json(name = "name") val nameSrcUrl: String, // direcionando imgSrcUrl que contem os nomes
+//    @Json(name = "type") val typeSrcUrl: String, // direcionando typeSrcUrl que contem os tipos
+//    @Json(name = "description") val descSrcUrl: String // direcionando descSrcUrl que contem as descrições
 
 )
